@@ -5,6 +5,8 @@ import paramiko
 from getpass import getpass
 from colorama import Fore
 
+VERSION = "0.1.0"
+
 CONFIG_FILE = "localtest.json"
 ADDRESS = "login.cse.unsw.edu.au"
 TEMP_FOLDER =  "~/Documents/SSH-Autotest"

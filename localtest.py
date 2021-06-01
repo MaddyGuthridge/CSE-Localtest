@@ -5,13 +5,41 @@ import json
 import sys
 
 import test, give, projectsetup
+import localtestcommon as c
 
 def badArgs():
-    print(f"Run localtest -h for help")
+    print(f"Run `localtest help` for help")
     exit()
 
 def help():
-    pass
+    print('\n'.join([
+        "localtest: A program so that you don't need to VLab anymore",
+        "",
+        "Commands:",
+        " * help:  Display this message",
+        " * setup: Generate required files for using localtest with a project",
+        "          and fetch starter code if necessary",
+        "          Args:",
+        "           * course: course code (eg 1511)",
+        "           * project: project to start (eg lab01)",
+        " * test:  Run autotests on project",
+        "          Args:",
+        "           * exercises: specific exercises to test (defaults to all)",
+        " * give:  Submit code from project",
+        "          Args:",
+        "           * exercises: specific exercises to test (defaults to all)",
+        ""
+        ]))
+    print('\n'.join([
+        "Notice: this program is provided in the hope that it will be useful,",
+        "however, no guarantees are made that it will work correctly.",
+        "This software is not endorsed by UNSW, and as such, you use it at your",
+        "own risk. However, all feedback and contributions towards improving",
+        "the software would be greatly appreciated.",
+        ""
+    ]))
+    print(f"Version: {c.VERSION}")
+    print("Author: Miguel Guthridge")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -23,7 +51,7 @@ if __name__ == "__main__":
         give.main(sys.argv[2:])
     elif sys.argv[1] == "setup":
         projectsetup.main(sys.argv[2:])
-    elif sys.argv[1] == "-h":
+    elif sys.argv[1] == "help":
         help()
     else:
         badArgs()
