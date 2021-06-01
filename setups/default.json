@@ -1,0 +1,13 @@
+{
+    "course": "0000",
+    "project": "lab01",
+    "starter_code": "command to fetch starter code (remove this if n/a)",
+    "exercises":
+    [
+        {
+            "name": "Exercise name",
+            "identifier": "exercise_identifier",
+            "files": ["my_code.c", "my_header.h", "my_header.c"]
+        }
+    ]
+}

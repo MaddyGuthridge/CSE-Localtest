@@ -46,6 +46,7 @@ def help():
 
 def update():
     print("Updating localtest...")
+    os.chdir(os.path.dirname(__file__))
     os.system("git pull")
 
 if __name__ == "__main__":
