@@ -9,7 +9,7 @@ CONFIG_FILE = "localtest.json"
 ADDRESS = "login.cse.unsw.edu.au"
 TEMP_FOLDER =  "~/Documents/SSH-Autotest"
 
-def getJson():
+def getJson() -> dict:
     try:
         return json.load(open(CONFIG_FILE))
     except IOError:
@@ -35,14 +35,20 @@ def printOutput(result):
     for line in result:
         print("\t" + line.strip())
 
-def runCommand(ssh, dir, command):
+def runCommand(ssh, dir, command, mkdir=False):
+    if mkdir:
+        ssh.exec_command(f"mkdir {dir} -p\n")
     return ssh.exec_command(f"cd {dir} && {command}\n")[1].readlines()
 
 def uploadFiles(usr, pwd, folder):
     print("Uploading files...")
-    os.system(f"sshpass -p '{pwd}' rsync -r ./* {usr}@{ADDRESS}:{folder}")
+    os.system(f"sshpass -p '{pwd}' rsync --copy-links -r ./* {usr}@{ADDRESS}:{folder}")
+
+def downloadFiles(usr, pwd, folder):
+    print("Downloading files...")
+    os.system(f"sshpass -p '{pwd}' rsync --copy-links -r {usr}@{ADDRESS}:{folder}/* .")
 
 def removeFiles(ssh, folder):
-    print("Removing residue files...")
+    print("Removing temporary files...")
     ssh.exec_command(f"rm -r {folder}")
     
