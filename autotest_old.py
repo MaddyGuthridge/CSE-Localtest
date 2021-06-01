@@ -8,7 +8,7 @@ import _common as c
 AUTOTEST_CONFIG = "autotest.config"
 
 def runTests(tests, unit, folder, usr, pwd):
-     # SSH into CSE
+    # SSH into CSE
     ssh = paramiko.SSHClient()
     ssh.load_system_host_keys()
     print("Connecting SSH...")
@@ -21,7 +21,7 @@ def runTests(tests, unit, folder, usr, pwd):
     for t in tests:
         t = t.strip()
         print(f"Testing {t}... ", end='', flush=True)
-        result = ssh.exec_command(f"cd {folder} && {unit} autotest {t}\n")[1].readlines()
+        result = c.runCommand(ssh, folder, f"{unit} autotest {t}")
         if "could not be run" in result[-1]:
             print(Fore.MAGENTA + "Some tests could not be run")
             c.printOutput(result)
