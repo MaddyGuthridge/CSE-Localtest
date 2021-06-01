@@ -3,6 +3,7 @@
 import argparse
 import json
 import sys
+import os
 
 import test, give, projectsetup
 import localtestcommon as c
@@ -16,18 +17,20 @@ def help():
         "localtest: A program so that you don't need to VLab anymore",
         "",
         "Commands:",
-        " * help:  Display this message",
-        " * setup: Generate required files for using localtest with a project",
-        "          and fetch starter code if necessary",
-        "          Args:",
-        "           * course: course code (eg 1511)",
-        "           * project: project to start (eg lab01)",
-        " * test:  Run autotests on project",
-        "          Args:",
-        "           * exercises: specific exercises to test (defaults to all)",
-        " * give:  Submit code from project",
-        "          Args:",
-        "           * exercises: specific exercises to test (defaults to all)",
+        " * help:   Display this message",
+        " * setup:  Generate required files for using localtest with a project",
+        "           and fetch starter code if necessary",
+        "           Args:",
+        "            * course: course code (eg 1511)",
+        "            * project: project to start (eg lab01)",
+        " * test:   Run autotests on project",
+        "           Args:",
+        "            * exercises: specific exercises to test (defaults to all)",
+        " * give:   Submit code from project",
+        "           Args:",
+        "            * exercises: specific exercises to test (defaults to all)",
+        " * update: Runs a git pull to update the repository provided that it",
+        "           was git cloned."
         ""
         ]))
     print('\n'.join([
@@ -41,6 +44,10 @@ def help():
     print(f"Version: {c.VERSION}")
     print("Author: Miguel Guthridge")
 
+def update():
+    print("Updating localtest...")
+    os.system("git pull")
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         badArgs()
@@ -53,6 +60,8 @@ if __name__ == "__main__":
         projectsetup.main(sys.argv[2:])
     elif sys.argv[1] == "help":
         help()
+    elif sys.argv[1] == "update":
+        update()
     else:
         badArgs()
 
