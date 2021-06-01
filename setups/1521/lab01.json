@@ -1,0 +1,42 @@
+{
+    "course": "1521",
+    "project": "lab01",
+    "exercises":
+    [
+        {
+            "name": "Remove All Vowels from STDIN",
+            "identifier": "no_vowels",
+            "files": ["no_vowels.c"]
+        },
+        {
+            "name": "Transform All Uppercase letters to Lowercase",
+            "identifier": "no_uppercase",
+            "files": ["no_uppercase.c"]
+        },
+        {
+            "name": "Remove Uneven Lines of Input",
+            "identifier": "no_odd_lines",
+            "files": ["no_odd_lines.c"]
+        },
+        {
+            "name": "Pretty Print Command Line Arguments",
+            "identifier": "my_args",
+            "files": ["my_args.c"]
+        },
+        {
+            "name": "Statistical Analysis of Command Line Arguments",
+            "identifier": "arg_stats",
+            "files": ["arg_stats.c"]
+        },
+        {
+            "name": "(Dis)Proving the Collatz Conjecture",
+            "identifier": "collatz",
+            "files": ["collatz.c"]
+        },
+        {
+            "name": "Calculating the Fibonacci Sequence The (Not So) Fast Way",
+            "identifier": "fibonacci",
+            "files": ["fibonacci.c"]
+        }
+    ]
+}

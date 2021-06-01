@@ -4,7 +4,7 @@ import argparse
 import json
 import sys
 
-import test, give
+import test, give, projectsetup
 
 def badArgs():
     print(f"Run localtest -h for help")
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     elif sys.argv[1] == "give":
         give.main(sys.argv[2:])
     elif sys.argv[1] == "setup":
-        pass
+        projectsetup.main(sys.argv[2:])
     elif sys.argv[1] == "-h":
         help()
     else:
