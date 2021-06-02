@@ -42,6 +42,7 @@ def help():
         ""
     ]))
     print(f"Version: {c.VERSION}")
+    print(f"Setups library version: {c.SETUPS_VERSION}")
     print("Author: Miguel Guthridge")
 
 def update():
