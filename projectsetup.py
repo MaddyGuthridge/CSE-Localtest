@@ -4,14 +4,14 @@ import argparse
 
 import localtestcommon as c
 
-def getStarterCode():
+def getStarterCode(overwrite):
     config = c.getJson()
     if "starter_code" in config:
         print("Fetching starter code...")
         usr, pwd = c.getZidPass()
         ssh = c.createSsh(usr, pwd)
         c.runCommand(ssh, c.TEMP_FOLDER, config["starter_code"], mkdir=True)
-        c.downloadFiles(usr, pwd, c.TEMP_FOLDER)
+        c.downloadFiles(usr, pwd, c.TEMP_FOLDER, overwrite)
         c.removeFiles(ssh, c.TEMP_FOLDER)
         ssh.close()
     else:
@@ -35,16 +35,27 @@ def getDefaultJson():
         print("Error: default.json missing!")
 
 def checkDirContents():
+    """Return whether to overwrite existing files
+    """
     try:
         # Check if directory has files or folders
         os.scandir(".").__next__()
-        print("Warning: the directory already has files or folders present.")
-        print("Continuing may overwrite existing files.")
-        if input("Do you wish to continue? (y/n) ").lower() not in ["y", "yes"]:
+        print("Warning: the directory already has files or folders present")
+        print("Choose one:\n"
+              "  'o': overwrite existing files\n"
+              "  'k': keep existing files\n"
+              "  'c': cancel (default)")
+        print("Note that localtest.json will always be overwritten")
+        choice = input()
+        if choice == 'o':
+            return True
+        elif choice == 'k':
+            return False
+        else:
             exit()
-    except IndexError:
+    except StopIteration:
         # Directory is empty
-        pass
+        return False
 
 def main(args):
     if len(args) > 0 and args[0] == "default":
@@ -55,6 +66,6 @@ def main(args):
     parser.add_argument("course", type=str)
     parser.add_argument("project", type=str)
     args = parser.parse_args(args)
-    checkDirContents()
+    overwrite = checkDirContents()
     getSetupJson(args.course, args.project)
-    getStarterCode()
+    getStarterCode(overwrite)

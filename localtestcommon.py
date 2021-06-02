@@ -46,9 +46,10 @@ def uploadFiles(usr, pwd, folder):
     print("Uploading files...")
     os.system(f"sshpass -p '{pwd}' rsync --copy-links -r ./* {usr}@{ADDRESS}:{folder}")
 
-def downloadFiles(usr, pwd, folder):
+def downloadFiles(usr, pwd, folder, overwrite=False):
+    keep = "" if overwrite else "--ignore-existing"
     print("Downloading files...")
-    os.system(f"sshpass -p '{pwd}' rsync --copy-links -r {usr}@{ADDRESS}:{folder}/* .")
+    os.system(f"sshpass -p '{pwd}' rsync {keep} --copy-links -r {usr}@{ADDRESS}:{folder}/* .")
 
 def removeFiles(ssh, folder):
     print("Removing temporary files...")
