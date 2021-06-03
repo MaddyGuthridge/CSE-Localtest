@@ -1,5 +1,7 @@
 
 import argparse
+import time
+import webbrowser
 from colorama import Fore
 
 import localtestcommon as c
@@ -26,6 +28,9 @@ def runSubmissions(tests, course, project, ssh):
         print(Fore.RED + f"{t_fail} failed to submit, " + Fore.GREEN + f"{t_pass} accepted" + Fore.RESET)
 
     print(Fore.RESET, end='')
+    print("Displaying course submissions in browser...")
+    time.sleep(0.5)
+    webbrowser.open(f"https://cgi.cse.unsw.edu.au/~cs{course}/{c.UNSW_TERM}/flask.cgi/student/")
 
 def main(args):
     config = c.getJson()
