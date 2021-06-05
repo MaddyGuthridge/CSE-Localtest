@@ -1,6 +1,9 @@
 # localtest
 
 A program so you don't need to use VLab anymore.
+ - Fetch starter code
+ - Run autotests
+ - Complete submissions
 
 # Installation
 
