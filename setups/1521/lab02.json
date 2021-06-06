@@ -1,0 +1,38 @@
+{
+    "course": "1521",
+    "project": "lab02",
+    "starter_code": "1521 fetch lab02",
+    "exercises":
+    [
+        {
+            "name": "Convert 16 Binary Digits to A Signed Number",
+            "identifier": "sixteen_in",
+            "files": ["sixteen_in.c"]
+        },
+        {
+            "name": "Convert a 16-bit Signed Number to Binary Digits",
+            "identifier": "sixteen_out",
+            "files": ["sixteen_out.c"]
+        },
+        {
+            "name": "Convert a 2 digit BCD Value to an Integer",
+            "identifier": "bcd",
+            "files": ["bcd.c"]
+        },
+        {
+            "name": "Convert an 8 digit Packed BCD Value to an Integer",
+            "identifier": "packed_bcd",
+            "files": ["packed_bcd.c"]
+        },
+        {
+            "name": "Add 2 Arbitrary Length BCD Values",
+            "identifier": "bcd_add",
+            "files": ["bcd_add.c"]
+        },
+        {
+            "name": "Subtract, Multiply and Divide 2 Arbitrary Length BCD Values",
+            "identifier": "bcd_arithmetic",
+            "files": ["bcd_arithmetic.c"]
+        }
+    ]
+}
