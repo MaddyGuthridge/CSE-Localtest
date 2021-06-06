@@ -5,7 +5,7 @@ import paramiko
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 SETUPS_VERSION = "2021.06.06"
 
 CONFIG_FILE = "localtest.json"

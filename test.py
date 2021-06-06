@@ -15,7 +15,7 @@ def runTests(tests, course, ssh):
             print(Fore.MAGENTA + "Some tests could not be run")
             c.printOutput(output)
             t_skip += 1
-        elif "0 tests failed" in output[-1]:
+        elif " 0 tests failed" in output[-1]:
             print(Fore.GREEN + "All tests passed", end='')
             t_pass += 1
         else:
