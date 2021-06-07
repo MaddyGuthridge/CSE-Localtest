@@ -2,10 +2,11 @@
 import json
 import os
 import paramiko
+import webbrowser
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.0.4"
+VERSION = "1.0.5"
 SETUPS_VERSION = "2021.06.06"
 
 CONFIG_FILE = "localtest.json"
@@ -58,3 +59,5 @@ def removeFiles(ssh, folder):
     print("Removing temporary files...")
     ssh.exec_command(f"rm -r {folder}")
     
+def launchURL(url):
+    webbrowser.open(url)
