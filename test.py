@@ -9,7 +9,7 @@ def runTests(tests, course, ssh):
     t_fail = 0
     t_skip = 0
     for t in tests:
-        print(f"Testing exercise: {t['name']} ({t['identifier']})... ", end='')
+        print(f"Testing exercise: {t['name']} ({t['identifier']})... ", end='', flush=True)
         output = c.runCommand(ssh, c.TEMP_FOLDER, f"{course} autotest {t['identifier']}")
         if "could not be run" in output[-1]:
             print(Fore.MAGENTA + "Some tests could not be run")
@@ -28,7 +28,7 @@ def runTests(tests, course, ssh):
     if t_fail == t_skip == 0:
         print(Fore.GREEN + "All exercises passed!!!")
     else:
-        print(Fore.MAGENTA + f"{t_skip} skipped, " + Fore.RED + f"{t_fail} failed, " + Fore.GREEN + f"{t_pass} passed" + Fore.RESET)
+        print("Overall: " + Fore.MAGENTA + f"{t_skip} skipped, " + Fore.RED + f"{t_fail} failed, " + Fore.GREEN + f"{t_pass} passed" + Fore.RESET)
 
     print(Fore.RESET, end='')
 
