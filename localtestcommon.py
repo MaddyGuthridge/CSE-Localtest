@@ -11,7 +11,7 @@ SETUPS_VERSION = "2021.06.15"
 
 CONFIG_FILE = "localtest.json"
 ADDRESS = "login.cse.unsw.edu.au"
-TEMP_FOLDER =  "~/Documents/SSH-Autotest"
+TEMP_FOLDER =  "~/Documents/LocaltestTemp"
 
 UNSW_TERM = "21T2"
 
