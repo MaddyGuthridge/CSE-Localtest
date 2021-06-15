@@ -1,0 +1,29 @@
+{
+    "course": "1521",
+    "project": "lab03",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/lab/03/questions",
+    "starter_code": "1521 fetch lab03",
+    "exercises":
+    [
+        {
+            "name": "Extract The Components of a Float",
+            "identifier": "float_bits",
+            "files": ["float_bits.c"]
+        },
+        {
+            "name": "Multiply A Float by 2048 Using Bit Operations",
+            "identifier": "float_2048",
+            "files": ["float_2048.c"]
+        },
+        {
+            "name": "Compare Floats Using Bit Operations",
+            "identifier": "float_less",
+            "files": ["float_less.c"]
+        },
+        {
+            "name": "Print A Float Using Only putchar and puts",
+            "identifier": "float_print",
+            "files": ["float_print.c"]
+        }
+    ]
+}
