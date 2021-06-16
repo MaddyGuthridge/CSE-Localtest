@@ -38,6 +38,8 @@ to the section *Making a Manual Configuration*.
 
 **Updating Localtest**: run `localtest update` to run a `git pull` command to update Localtest (requires the program to have been installed using a `git clone` command.
 
+When running a `test` or `give` command, adding a `-v` argument will cause all output to be printed regardless of whether it submitted or not.
+
 # Making a Manual Configuration
 
 You can create a configuration based off the default template by 
