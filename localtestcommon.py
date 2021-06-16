@@ -6,7 +6,7 @@ import webbrowser
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 SETUPS_VERSION = "2021.06.15"
 
 CONFIG_FILE = "localtest.json"
@@ -40,6 +40,7 @@ def printOutput(result):
     print(Fore.YELLOW, end='')
     for line in result:
         print("\t" + line.strip())
+    print("")
 
 def runCommand(ssh, dir, command, mkdir=False):
     if mkdir:
