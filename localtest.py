@@ -30,8 +30,9 @@ def help():
         " * give:     Submit code from project",
         "             Args:",
         "              * exercises: specific exercises to test (defaults to all)",
+        " * upload:   Uploads the contents of the directory to VLab",
         " * update:   Runs a git pull to update the repository provided that it",
-        "             was git cloned."
+        "             was git cloned.",
         ""
         ]))
     print('\n'.join([
@@ -53,6 +54,10 @@ def projecthelp():
     except KeyError:
         print(f"Error: help URL not found for this project ({proj['course']}_{proj['project']})")
 
+def upload():
+    usr, pwd = c.getZidPass()
+    c.uploadFiles(usr, pwd, c.UPLOAD_FOLDER)
+
 def update():
     print("Updating localtest...")
     os.chdir(os.path.dirname(__file__))
@@ -72,6 +77,8 @@ if __name__ == "__main__":
         projecthelp()
     elif sys.argv[1] == "help":
         help()
+    elif sys.argv[1] == "upload":
+        upload()
     elif sys.argv[1] == "update":
         update()
     else:

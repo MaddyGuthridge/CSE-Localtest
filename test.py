@@ -4,26 +4,29 @@ from colorama import Fore
 
 import localtestcommon as c
 
-def runTests(tests, course, ssh):
+def runTests(tests, course, ssh, verbose):
     t_pass = 0
     t_fail = 0
     t_skip = 0
     for t in tests:
         print(f"Testing exercise: {t['name']} ({t['identifier']})... ", end='', flush=True)
+        doOutput = verbose is not None
         output = c.runCommand(ssh, c.TEMP_FOLDER, f"{course} autotest {t['identifier']}")
         if "could not be run" in output[-1]:
             print(Fore.MAGENTA + "Some tests could not be run")
-            c.printOutput(output)
+            doOutput = True
             t_skip += 1
         elif " 0 tests failed" in output[-1]:
-            print(Fore.GREEN + "All tests passed", end='')
+            print(Fore.GREEN + "All tests passed")
             t_pass += 1
         else:
             print(Fore.RED + "Not all tests passed")
-            c.printOutput(output)
+            doOutput = True
             t_fail += 1
-            
-        print(Fore.RESET)
+        
+        if doOutput:
+            c.printOutput(output)
+        print(Fore.RESET, end='')
     
     if t_fail == t_skip == 0:
         print(Fore.GREEN + "All exercises passed!!!")
@@ -36,7 +39,10 @@ def main(args):
     config = c.getJson()
     parser = argparse.ArgumentParser(prog="localtest test", description="Run tests for UNSW CSE courses")
     parser.add_argument("exercises", type=str, default=None, nargs="*")
-    arg_tests = parser.parse_args(args).exercises
+    parser.add_argument("-v", "--verbose", action="count")
+    parsed = parser.parse_args(args)
+    arg_tests = parsed.exercises
+    verbosity = parsed.verbose
     
     print(f"Course: {config['course']}, Project: {config['project']}")
     if len(arg_tests) == 0:
@@ -59,7 +65,7 @@ def main(args):
     
     ssh = c.createSsh(usr, pwd)
     
-    runTests(test_list, config["course"], ssh)
+    runTests(test_list, config["course"], ssh, verbosity)
     
     c.removeFiles(ssh, c.TEMP_FOLDER)
     ssh.close()

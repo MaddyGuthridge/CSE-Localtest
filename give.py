@@ -5,20 +5,23 @@ from colorama import Fore
 
 import localtestcommon as c
 
-def runSubmissions(tests, course, project, ssh):
+def runSubmissions(tests, course, project, ssh, verbose):
     t_pass = 0
     t_fail = 0
     for t in tests:
         print(f"Submitting exercise: {t['name']} ({t['identifier']})... ", end='', flush=True)
         output = c.runCommand(ssh, c.TEMP_FOLDER, f"echo $'yes\\nyes' | give cs{course} {project}_{t['identifier']} {' '.join(t['files'])}")
-        
+        doOutput = verbose is not None
         if "Your submission is ACCEPTED" in output[-1]:
             print(Fore.GREEN + "Accepted!")
             t_pass += 1
         else:
             print(Fore.GREEN + "Declined")
-            c.printOutput(output)
+            doOutput = True
             t_fail += 1
+        
+        if doOutput:
+            c.printOutput(output)
         print(Fore.RESET)
     
     if t_fail == 0:
@@ -35,7 +38,10 @@ def main(args):
     config = c.getJson()
     parser = argparse.ArgumentParser(prog="localtest give", description="Submit work for UNSW CSE courses")
     parser.add_argument("exercises", type=str, default=None, nargs="*")
-    arg_tests = parser.parse_args(args).exercises
+    parser.add_argument("-v", "--verbose", action="count")
+    parsed = parser.parse_args(args)
+    arg_tests = parsed.exercises
+    verbosity = parsed.verbose
     
     print(f"Course: {config['course']}, Project: {config['project']}")
     if len(arg_tests) == 0:
@@ -60,7 +66,7 @@ def main(args):
     
     ssh = c.createSsh(usr, pwd)
     
-    runSubmissions(sub_list, config["course"], config["project"], ssh)
+    runSubmissions(sub_list, config["course"], config["project"], ssh, verbosity)
     
     c.removeFiles(ssh, c.TEMP_FOLDER)
     ssh.close()

@@ -6,12 +6,13 @@ import webbrowser
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 SETUPS_VERSION = "2021.06.15"
 
 CONFIG_FILE = "localtest.json"
 ADDRESS = "login.cse.unsw.edu.au"
 TEMP_FOLDER =  "~/Documents/LocaltestTemp"
+UPLOAD_FOLDER = "~/Documents/LocaltestUpload"
 
 UNSW_TERM = "21T2"
 
@@ -40,6 +41,7 @@ def printOutput(result):
     print(Fore.YELLOW, end='')
     for line in result:
         print("\t" + line.strip())
+    print("")
 
 def runCommand(ssh, dir, command, mkdir=False):
     if mkdir:
@@ -47,7 +49,7 @@ def runCommand(ssh, dir, command, mkdir=False):
     return ssh.exec_command(f"cd {dir} && {command}\n")[1].readlines()
 
 def uploadFiles(usr, pwd, folder):
-    print("Uploading files...")
+    print(f"Uploading files to \"{folder}\"...")
     os.system(f"sshpass -p '{pwd}' rsync --copy-links -r ./* {usr}@{ADDRESS}:{folder}")
 
 def downloadFiles(usr, pwd, folder, overwrite=False):
