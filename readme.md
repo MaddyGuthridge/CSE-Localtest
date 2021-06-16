@@ -28,6 +28,16 @@ submissions are run. If they are provided, then it will also
 download starter code. If a project configuration isn't found, refer 
 to the section *Making a Manual Configuration*.
 
+**Testing exercises**: run `localtest test` to test all exercises, or `localtest test [exercise name]` to test an individual exercise.
+
+**Submitting exercises**: run `localtest give` to submit all exercises, or `localtest give [exercise name]` to submit an individual exercise.
+
+**Copying files to VLab**: run `localtest upload` to copy all files in the directory to VLab.
+
+**Displaying project instructions**: run `localtest instruct` to open the instruction page for the project in your web browser.
+
+**Updating Localtest**: run `localtest update` to run a `git pull` command to update Localtest (requires the program to have been installed using a `git clone` command.
+
 # Making a Manual Configuration
 
 You can create a configuration based off the default template by 
