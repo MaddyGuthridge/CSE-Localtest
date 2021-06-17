@@ -6,7 +6,7 @@ import webbrowser
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.2.0"
+VERSION = "1.2.1"
 SETUPS_VERSION = "2021.06.15"
 
 CONFIG_FILE = "localtest.json"
@@ -63,3 +63,6 @@ def removeFiles(ssh, folder):
     
 def launchURL(url):
     webbrowser.open(url)
+    
+def viewSubmissions(course, term):
+    webbrowser.open(f"https://cgi.cse.unsw.edu.au/~cs{course}/{term}/flask.cgi/student/")

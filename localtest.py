@@ -25,12 +25,13 @@ def help():
         "              * course: course code (eg 1511)",
         "              * project: project to start (eg lab01)",
         " * instruct: Launch instructions for project in web browser",
+        " * subs:     View course submissions in a web browser",
         " * test:     Run autotests on project",
         "             Args:",
         "              * exercises: specific exercises to test (defaults to all)",
         " * give:     Submit code from project",
         "             Args:",
-        "              * exercises: specific exercises to test (defaults to all)",
+        "              * exercises: specific exercises to submit (defaults to all)",
         " * upload:   Uploads the contents of the directory to VLab",
         " * update:   Runs a git pull to update the repository provided that it",
         "             was git cloned.",
@@ -55,6 +56,10 @@ def projecthelp():
     except KeyError:
         print(f"Error: help URL not found for this project ({proj['course']}_{proj['project']})")
 
+def viewSubmissions():
+    proj = c.getJson()
+    c.viewSubmissions(proj["course"], c.UNSW_TERM)
+
 def upload():
     usr, pwd = c.getZidPass()
     c.uploadFiles(usr, pwd, c.UPLOAD_FOLDER)
@@ -76,6 +81,8 @@ if __name__ == "__main__":
         projectsetup.main(sys.argv[2:])
     elif sys.argv[1] == "instruct":
         projecthelp()
+    elif sys.argv[1] == "subs":
+        viewSubmissions()
     elif sys.argv[1] == "help":
         help()
     elif sys.argv[1] == "upload":

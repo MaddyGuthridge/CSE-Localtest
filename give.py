@@ -32,7 +32,7 @@ def runSubmissions(tests, course, project, ssh, verbose):
     print(Fore.RESET, end='')
     print("Displaying course submissions in browser...")
     time.sleep(0.5)
-    c.launchURL(f"https://cgi.cse.unsw.edu.au/~cs{course}/{c.UNSW_TERM}/flask.cgi/student/")
+    c.viewSubmissions(course, c.UNSW_TERM)
 
 def main(args):
     config = c.getJson()
