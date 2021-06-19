@@ -37,25 +37,26 @@ def getDefaultJson():
 def checkDirContents():
     """Return whether to overwrite existing files
     """
-    try:
-        # Check if directory has files or folders
-        os.scandir(".").__next__()
-        print("Warning: the directory already has files or folders present")
-        print("Choose one:\n"
-              "  'o': overwrite existing files\n"
-              "  'k': keep existing files\n"
-              "  'c': cancel (default)")
-        print("Note that localtest.json will always be overwritten")
-        choice = input()
-        if choice == 'o':
-            return True
-        elif choice == 'k':
-            return False
-        else:
-            exit()
-    except StopIteration:
-        # Directory is empty
-        return False
+    # Check if directory has files or folders (excluding localtest.json)
+    for root, _, files in os.walk("."):
+        for name in files:
+            if os.path.join(root, name) != os.path.join(".", "localtest.json"):
+                # We found a file that wasn't localtest.json
+                print("Warning: the directory already has files or folders present")
+                print("Choose one:\n"
+                    "  'o': overwrite existing files\n"
+                    "  'k': keep existing files\n"
+                    "  'c': cancel (default)")
+                #print("Note that localtest.json will always be overwritten")
+                choice = input()
+                if choice == 'o':
+                    return True
+                elif choice == 'k':
+                    return False
+                else:
+                    exit()
+    # End of loop: nothing found if we didn't return already
+    return False
 
 def main(args):
     if len(args) > 0 and args[0] == "default":
@@ -68,4 +69,8 @@ def main(args):
     args = parser.parse_args(args)
     overwrite = checkDirContents()
     getSetupJson(args.course, args.project)
+    getStarterCode(overwrite)
+
+def mainFetch(args):
+    overwrite = checkDirContents()
     getStarterCode(overwrite)

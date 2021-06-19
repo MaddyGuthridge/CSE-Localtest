@@ -24,6 +24,7 @@ def help():
         "             Args:",
         "              * course: course code (eg 1511)",
         "              * project: project to start (eg lab01)",
+        " * fetch:    Fetch starter code (use this after setting up a custom template)",
         " * instruct: Launch instructions for project in web browser",
         " * subs:     View course submissions in a web browser",
         " * test:     Run autotests on project",
@@ -79,6 +80,8 @@ if __name__ == "__main__":
         give.main(sys.argv[2:])
     elif sys.argv[1] == "setup":
         projectsetup.main(sys.argv[2:])
+    elif sys.argv[1] == "fetch":
+        projectsetup.mainFetch(sys.argv[2:])
     elif sys.argv[1] == "instruct":
         projecthelp()
     elif sys.argv[1] == "subs":
