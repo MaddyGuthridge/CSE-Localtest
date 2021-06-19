@@ -38,14 +38,17 @@ def checkDirContents():
     """Return whether to overwrite existing files
     """
     try:
-        # Check if directory has files or folders
-        os.scandir(".").__next__()
+        sc = os.scandir(".")
+        # Check if directory has files or folders (excluding localtest.json)
+        # FIXME
+        if sc.__next__() == "localtest.json":
+            sc.__next__()
         print("Warning: the directory already has files or folders present")
         print("Choose one:\n"
               "  'o': overwrite existing files\n"
               "  'k': keep existing files\n"
               "  'c': cancel (default)")
-        print("Note that localtest.json will always be overwritten")
+        #print("Note that localtest.json will always be overwritten")
         choice = input()
         if choice == 'o':
             return True
@@ -68,4 +71,8 @@ def main(args):
     args = parser.parse_args(args)
     overwrite = checkDirContents()
     getSetupJson(args.course, args.project)
+    getStarterCode(overwrite)
+
+def mainFetch(args):
+    overwrite = checkDirContents()
     getStarterCode(overwrite)
