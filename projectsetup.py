@@ -4,6 +4,7 @@ import argparse
 
 import localtestcommon as c
 
+
 def getStarterCode(overwrite):
     config = c.getJson()
     if "starter_code" in config:

@@ -1,4 +1,3 @@
-
 import argparse
 import time
 from colorama import Fore

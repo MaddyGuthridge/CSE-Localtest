@@ -2,7 +2,7 @@
     "course": "0000",
     "project": "lab01",
     "help_url": "URL with instructions for the project",
-    "starter_code": "#command to fetch starter code (remove this if n/a)",
+    "starter_code": "#command to fetch starter code (remove this if not needed)",
     "exercises":
     [
         {

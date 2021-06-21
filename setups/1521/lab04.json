@@ -1,0 +1,39 @@
+{
+    "course": "1521",
+    "project": "lab03",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/lab/03/questions",
+    "starter_code": "1521 fetch lab04",
+    "exercises":
+    [
+        {
+            "name": "Do You MIPS me?",
+            "identifier": "bad_pun",
+            "files": ["bad_pun.s"]
+        },
+        {
+            "name": "MIPS Grading",
+            "identifier": "grade",
+            "files": ["grade.s"]
+        },
+        {
+            "name": "MIPS Counting",
+            "identifier": "count",
+            "files": ["count.s"]
+        },
+        {
+            "name": "MIPS 7-Eleven",
+            "identifier": "seven_eleven",
+            "files": ["seven_eleven.s"]
+        },
+        {
+            "name": "MIPS Tetrahedra",
+            "identifier": "tetrahedral",
+            "files": ["tetrahedral.s"]
+        },
+        {
+            "name": "Read & Execute MIPS Instructions",
+            "identifier": "dynamic_load",
+            "files": ["dynamic_load.s"]
+        }
+    ]
+}

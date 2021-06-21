@@ -1,4 +1,3 @@
-
 import json
 import os
 import paramiko
@@ -7,7 +6,7 @@ from getpass import getpass
 from colorama import Fore
 
 VERSION = "1.2.2"
-SETUPS_VERSION = "2021.06.15"
+SETUPS_VERSION = "2021.06.21"
 
 CONFIG_FILE = "localtest.json"
 ADDRESS = "login.cse.unsw.edu.au"

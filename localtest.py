@@ -8,7 +8,6 @@ import os
 import test, give, projectsetup
 import localtestcommon as c
 
-
 def badArgs():
     print(f"Run `localtest help` for help")
     exit()
