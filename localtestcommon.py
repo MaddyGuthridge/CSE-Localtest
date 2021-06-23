@@ -5,7 +5,7 @@ import webbrowser
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.2.2"
+VERSION = "1.3.0-beta"
 SETUPS_VERSION = "2021.06.21"
 
 CONFIG_FILE = "localtest.json"

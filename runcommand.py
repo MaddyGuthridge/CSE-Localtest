@@ -18,6 +18,7 @@ def main(args):
     res = c.runCommand(ssh, c.TEMP_FOLDER, parsed.command)
     c.printOutput(res)
     
-    ssh.close()
     if do_download:
         c.downloadFiles(usr, pwd, c.TEMP_FOLDER, True)
+
+    c.removeFiles(ssh, c.TEMP_FOLDER)
