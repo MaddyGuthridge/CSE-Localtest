@@ -11,17 +11,22 @@ def runTests(tests, course, ssh, verbose):
         print(f"Testing exercise: {t['name']} ({t['identifier']})... ", end='', flush=True)
         doOutput = verbose is not None
         output = c.runCommand(ssh, c.TEMP_FOLDER, f"{course} autotest {t['identifier']}")
-        if "could not be run" in output[-1]:
-            print(Fore.MAGENTA + "Some tests could not be run")
-            doOutput = True
-            t_skip += 1
-        elif " 0 tests failed" in output[-1]:
-            print(Fore.GREEN + "All tests passed")
-            t_pass += 1
+        if len(output[0]):
+            if "could not be run" in output[0][-1]:
+                print(Fore.MAGENTA + "Some tests could not be run")
+                doOutput = True
+                t_skip += 1
+            elif " 0 tests failed" in output[0][-1]:
+                print(Fore.GREEN + "All tests passed")
+                t_pass += 1
+            else:
+                print(Fore.RED + "Not all tests passed")
+                doOutput = True
+                t_fail += 1
         else:
-            print(Fore.RED + "Not all tests passed")
+            print("An error occurred while running tests")
+            t_skip += 1
             doOutput = True
-            t_fail += 1
         
         if doOutput:
             c.printOutput(output)
