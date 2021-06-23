@@ -6,7 +6,7 @@ from getpass import getpass
 from colorama import Fore
 
 VERSION = "1.2.2"
-SETUPS_VERSION = "2021.06.21"
+SETUPS_VERSION = "2021.06.23"
 
 CONFIG_FILE = "localtest.json"
 ADDRESS = "login.cse.unsw.edu.au"
