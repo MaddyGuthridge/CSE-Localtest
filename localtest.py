@@ -5,7 +5,7 @@ import json
 import sys
 import os
 
-import test, give, projectsetup
+import test, give, projectsetup, runcommand
 import localtestcommon as c
 
 def badArgs():
@@ -77,6 +77,8 @@ if __name__ == "__main__":
         test.main(sys.argv[2:])
     elif sys.argv[1] == "give":
         give.main(sys.argv[2:])
+    elif sys.argv[1] == "cmd":
+        runcommand.main(sys.argv[2:])
     elif sys.argv[1] == "setup":
         projectsetup.main(sys.argv[2:])
     elif sys.argv[1] == "fetch":
