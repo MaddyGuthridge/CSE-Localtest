@@ -1,0 +1,14 @@
+{
+    "course": "1521",
+    "project": "ass1",
+    "help_url": "URL with instructions for the project",
+    "starter_code": "1521 fetch snake",
+    "exercises":
+    [
+        {
+            "name": "Snake",
+            "identifier": "snake",
+            "files": ["snake.s"]
+        }
+    ]
+}
