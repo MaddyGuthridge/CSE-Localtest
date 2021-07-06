@@ -4,6 +4,7 @@ import argparse
 import json
 import sys
 import os
+from colorama import Fore
 
 import test, give, projectsetup
 import localtestcommon as c
@@ -70,26 +71,31 @@ def update():
     os.system("git pull")
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        badArgs()
-    
-    if sys.argv[1] == "test":
-        test.main(sys.argv[2:])
-    elif sys.argv[1] == "give":
-        give.main(sys.argv[2:])
-    elif sys.argv[1] == "setup":
-        projectsetup.main(sys.argv[2:])
-    elif sys.argv[1] == "fetch":
-        projectsetup.mainFetch(sys.argv[2:])
-    elif sys.argv[1] == "instruct":
-        projecthelp()
-    elif sys.argv[1] == "subs":
-        viewSubmissions()
-    elif sys.argv[1] == "help":
-        help()
-    elif sys.argv[1] == "upload":
-        upload()
-    elif sys.argv[1] == "update":
-        update()
-    else:
-        badArgs()
+    try:
+        if len(sys.argv) < 2:
+            badArgs()
+        
+        if sys.argv[1] == "test":
+            test.main(sys.argv[2:])
+        elif sys.argv[1] == "give":
+            give.main(sys.argv[2:])
+        elif sys.argv[1] == "setup":
+            projectsetup.main(sys.argv[2:])
+        elif sys.argv[1] == "fetch":
+            projectsetup.mainFetch(sys.argv[2:])
+        elif sys.argv[1] == "instruct":
+            projecthelp()
+        elif sys.argv[1] == "subs":
+            viewSubmissions()
+        elif sys.argv[1] == "help":
+            help()
+        elif sys.argv[1] == "upload":
+            upload()
+        elif sys.argv[1] == "update":
+            update()
+        else:
+            badArgs()
+    except KeyboardInterrupt:
+        print(Fore.RED)
+        print("Operation interrupted! Exiting...")
+        print(Fore.RESET)
