@@ -4,6 +4,9 @@ import argparse
 import json
 import sys
 import os
+from colorama import Fore
+
+from colorama import Fore
 
 import test, give, projectsetup, runcommand
 import localtestcommon as c
@@ -13,41 +16,54 @@ def badArgs():
     exit()
 
 def help():
+    r = Fore.RESET
+    d = Fore.RED
+    b = Fore.CYAN
+    m = Fore.MAGENTA
+    y = Fore.YELLOW
+    l = Fore.BLUE
+    
     print('\n'.join([
-        "localtest: A program so that you don't need to VLab anymore",
-        "",
-        "Commands:",
-        " * help:     Display this message",
-        " * setup:    Generate required files for using localtest with a project",
-        "             and fetch starter code if necessary",
-        "             Args:",
-        "              * course: course code (eg 1511)",
-        "              * project: project to start (eg lab01)",
-        " * fetch:    Fetch starter code (use this after setting up a custom template)",
-        " * instruct: Launch instructions for project in web browser",
-        " * subs:     View course submissions in a web browser",
-        " * test:     Run autotests on project",
-        "             Args:",
-        "              * exercises: specific exercises to test (defaults to all)",
-        " * give:     Submit code from project",
-        "             Args:",
-        "              * exercises: specific exercises to submit (defaults to all)",
-        " * upload:   Uploads the contents of the directory to VLab",
-        " * update:   Runs a git pull to update the repository provided that it",
-        "             was git cloned.",
-        ""
+        f"{b}localtest{r}: A program so that you don't need to VLab anymore",
+        f"",
+        f"Commands:",
+        f" {y}*{r} {b}help{r}:     Display this message",
+        f" {y}*{r} {b}setup{r}:    Generate required files for using localtest with a project",
+        f"             and fetch starter code if necessary",
+        f"             Args:",
+        f"              {y}*{r} {b}course{r}: course code (eg {m}1511{r})",
+        f"              {y}*{r} {b}project{r}: project to start (eg {m}lab01{r})",
+        f" {y}*{r} {b}fetch{r}:    Fetch starter code (use this after setting up a custom template)",
+        f" {y}*{r} {b}instruct{r}: Launch instructions for project in web browser",
+        f" {y}*{r} {b}subs{r}:     View course submissions in a web browser",
+        f" {y}*{r} {b}test{r}:     Run autotests on project",
+        f"             Args:",
+        f"              {y}*{r} {b}exercises{r}: specific exercises to test (defaults to all)",
+        f" {y}*{r} {b}give{r}:     Submit code from project",
+        f"             Args:",
+        f"              {y}*{r} {b}exercises{r}: specific exercises to submit (defaults to all)",
+        f" {y}*{r} {b}upload{r}:   Uploads the contents of the directory to VLab",
+        f" {y}*{r} {b}update{r}:   Runs a {b}git pull{r} to update the repository provided that it",
+        f"             was {b}git clone{r}d",
+        f"",
+        f"Note that for most commands, a {b}-v{r} argument will cause all output to be displayed",
+        f"(eg. {b}test{r} or {b}give{r} output), even if it succeeded",
+        f""
         ]))
     print('\n'.join([
-        "Notice: this program is provided in the hope that it will be useful,",
-        "however, no guarantees are made that it will work correctly.",
-        "This software is not endorsed by UNSW, and as such, you use it at your",
-        "own risk. However, all feedback and contributions towards improving",
-        "the software would be greatly appreciated.",
-        ""
+        f"{r}NOTICE{r}: this program is provided in the hope that it will be useful,",
+        f"however, although all reasonable efforts have been made to ensure it works,",
+        f"no guarantees are made that it is flawless or infallible.",
+        f"{d}This software is not endorsed by UNSW, and as such, you use it at your",
+        f"own risk{r}. However, all feedback and contributions towards improving",
+        f"the software would be greatly appreciated. Feel free to contribute setups",
+        f"for your courses, or improvements to the app's functionality.",
+        f""
     ]))
-    print(f"Version: {c.VERSION}")
-    print(f"Setups library version: {c.SETUPS_VERSION}")
-    print("Author: Miguel Guthridge")
+    print(f"GitHub: {l}{c.PROJECT_GITHUB}{r}")
+    print(f"Version: {m}{c.VERSION}{r}")
+    print(f"Setups library version: {m}{c.SETUPS_VERSION}{r}")
+    print(f"Author: {b}Miguel Guthridge{r}")
 
 def projecthelp():
     proj = c.getJson()
@@ -70,28 +86,33 @@ def update():
     os.system("git pull")
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        badArgs()
-    
-    if sys.argv[1] == "test":
-        test.main(sys.argv[2:])
-    elif sys.argv[1] == "give":
-        give.main(sys.argv[2:])
-    elif sys.argv[1] == "cmd":
-        runcommand.main(sys.argv[2:])
-    elif sys.argv[1] == "setup":
-        projectsetup.main(sys.argv[2:])
-    elif sys.argv[1] == "fetch":
-        projectsetup.mainFetch(sys.argv[2:])
-    elif sys.argv[1] == "instruct":
-        projecthelp()
-    elif sys.argv[1] == "subs":
-        viewSubmissions()
-    elif sys.argv[1] == "help":
-        help()
-    elif sys.argv[1] == "upload":
-        upload()
-    elif sys.argv[1] == "update":
-        update()
-    else:
-        badArgs()
+    try:
+        if len(sys.argv) < 2:
+            badArgs()
+        
+        if sys.argv[1] == "test":
+            test.main(sys.argv[2:])
+        elif sys.argv[1] == "give":
+            give.main(sys.argv[2:])
+        elif sys.argv[1] == "cmd":
+            runcommand.main(sys.argv[2:])
+        elif sys.argv[1] == "setup":
+            projectsetup.main(sys.argv[2:])
+        elif sys.argv[1] == "fetch":
+            projectsetup.mainFetch(sys.argv[2:])
+        elif sys.argv[1] == "instruct":
+            projecthelp()
+        elif sys.argv[1] == "subs":
+            viewSubmissions()
+        elif sys.argv[1] == "help":
+            help()
+        elif sys.argv[1] == "upload":
+            upload()
+        elif sys.argv[1] == "update":
+            update()
+        else:
+            badArgs()
+    except KeyboardInterrupt:
+        print(Fore.RED)
+        print("Operation interrupted! Exiting...")
+        print(Fore.RESET)

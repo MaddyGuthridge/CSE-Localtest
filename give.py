@@ -11,14 +11,19 @@ def runSubmissions(tests, course, project, ssh, verbose):
         print(f"Submitting exercise: {t['name']} ({t['identifier']})... ", end='', flush=True)
         output = c.runCommand(ssh, c.TEMP_FOLDER, f"echo $'yes\\nyes' | give cs{course} {project}_{t['identifier']} {' '.join(t['files'])}")
         doOutput = verbose is not None
-        if "Your submission is ACCEPTED" in output[-1]:
-            print(Fore.GREEN + "Accepted!")
-            t_pass += 1
+        if len(output[0]):
+            if "Your submission is ACCEPTED" in output[0][-1]:
+                print(Fore.GREEN + "Accepted!")
+                t_pass += 1
+            else:
+                print(Fore.RED + "Declined")
+                doOutput = True
+                t_fail += 1
         else:
-            print(Fore.GREEN + "Declined")
+            print(Fore.RED + "Declined")
             doOutput = True
             t_fail += 1
-        
+            
         if doOutput:
             c.printOutput(output)
         print(Fore.RESET)

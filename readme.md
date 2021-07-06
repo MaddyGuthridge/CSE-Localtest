@@ -10,15 +10,14 @@ A program so you don't need to use VLab anymore.
 It is recommended that you install localtest by `git clone`ing the repository. 
 That way, you will be able to easily update it by running `localtest update`.
 
-You may also wish to add the python script to your `path` variable for easy 
-invocation.
+You may also wish to add the python script to your `path` variable or to your 
+`.bash_aliases` file for easy invocation.
 
 ## Requirements:
 * Git (for self-updating)
 * Python (I tested using 3.8.5)
 * Python modules:
-  * Colorama (run `pip3 install colorama`)
-  * Paramiko (run `pip3 install paramiko`)
+  * Run `pip3 install -r requirements.txt` in the localtest directory.
 * Linux or Windows Subsystem for Linux (it might work on MacOS but I'm not 
 sure). Writing your code in Windows without the Linux subsystem is not 
 recommended for UNSW COMP courses.
@@ -48,7 +47,8 @@ update Localtest (requires the program to have been installed using a
 `git clone` command.
 
 When running a `test` or `give` command, adding a `-v` argument will cause all 
-output to be printed regardless of whether it submitted or not.
+output to be printed regardless of whether it submitted or not. This is great 
+people with trust issues.
 
 # Making a Manual Configuration
 
