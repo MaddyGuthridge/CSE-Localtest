@@ -5,7 +5,7 @@ import webbrowser
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.2.2"
+VERSION = "1.3.0"
 SETUPS_VERSION = "2021.06.28"
 
 CONFIG_FILE = "localtest.json"
@@ -37,15 +37,23 @@ def createSsh(usr, pwd):
     return ssh
 
 def printOutput(result):
-    print(Fore.YELLOW, end='')
-    for line in result:
-        print("\t" + line.strip())
-    print("")
+    streams = ["stdout", "stderr"]
+    colours = [Fore.YELLOW, Fore.RED]
+    for i, (stream, colour) in enumerate(zip(streams, colours)):
+        if len(result[i]):
+            print(Fore.RESET + stream + ":")
+            print(colour, end='')
+            for line in result[i]:
+                print("\t" + line[:-1])
+            print("")
+    if len(result[0]) == len(result[1]) == 0:
+        print("[No output]")
 
 def runCommand(ssh, dir, command, mkdir=False):
     if mkdir:
         ssh.exec_command(f"mkdir {dir} -p\n")
-    return ssh.exec_command(f"cd {dir} && {command}\n")[1].readlines()
+    res = ssh.exec_command(f"cd {dir} && {command}\n")
+    return (res[1].readlines(), res[2].readlines())
 
 def uploadFiles(usr, pwd, folder):
     print(f"Uploading files to \"{folder}\"...")
