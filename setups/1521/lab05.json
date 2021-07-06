@@ -1,0 +1,34 @@
+{
+    "course": "1521",
+    "project": "lab05",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/lab/05/questions",
+    "starter_code": "1521 fetch lab05",
+    "exercises":
+    [
+        {
+            "name": "Bigger MIPS",
+            "identifier": "print_bigger",
+            "files": ["print_bigger.s"]
+        },
+        {
+            "name": "MIPS Order Checking",
+            "identifier": "unordered",
+            "files": ["unordered.s"]
+        },
+        {
+            "name": "MIPS Swapping",
+            "identifier": "swap_numbers",
+            "files": ["swap_numbers.s"]
+        },
+        {
+            "name": "MIPS Bubbles",
+            "identifier": "bubblesort",
+            "files": ["bubblesort.s"]
+        },
+        {
+            "name": "MIPS NUXI",
+            "identifier": "nuxi",
+            "files": ["nuxi.s"]
+        }
+    ]
+}
