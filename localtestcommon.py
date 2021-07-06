@@ -13,6 +13,8 @@ ADDRESS = "login.cse.unsw.edu.au"
 TEMP_FOLDER =  "~/Documents/LocaltestTemp"
 UPLOAD_FOLDER = "~/Documents/LocaltestUpload"
 
+PROJECT_GITHUB = "https://github.com/MiguelGuthridge/CSE-Localtest"
+
 UNSW_TERM = "21T2"
 
 def getJson() -> dict:
