@@ -1,0 +1,34 @@
+{
+    "course": "1521",
+    "project": "lab07",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/lab/07/questions",
+    "starter_code": "1521 fetch lab07",
+    "exercises":
+    [
+        {
+            "name": "Create An addi Instruction",
+            "identifier": "addi",
+            "files": ["addi.c"]
+        },
+        {
+            "name": "MIPS 2d array",
+            "identifier": "lookup",
+            "files": ["lookup.s"]
+        },
+        {
+            "name": "MIPS Sieve",
+            "identifier": "sieve",
+            "files": ["sieve.s"]
+        },
+        {
+            "name": "MIPS factorial",
+            "identifier": "factorial",
+            "files": ["factorial.s"]
+        },
+        {
+            "name": "MIPS Big Factorials",
+            "identifier": "big_factorial",
+            "files": ["big_factorial.s"]
+        }
+    ]
+}
