@@ -5,7 +5,7 @@ import webbrowser
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.3.0"
+VERSION = "1.3.1"
 SETUPS_VERSION = "2021.07.24"
 
 CONFIG_FILE = "localtest.json"
@@ -22,8 +22,8 @@ def getJson() -> dict:
         return json.load(open(CONFIG_FILE))
     except IOError:
         print(f"This folder is missing a {CONFIG_FILE} file.\n"
-              f"Run localtest setup [course] [project] to rectify")
-        exit()
+              f"Run {Fore.CYAN}localtest setup [course] [project]{Fore.RESET} to rectify")
+        exit(1)
 
 def getZidPass():
     zid = input("zID: ")
@@ -32,10 +32,15 @@ def getZidPass():
 
 def createSsh(usr, pwd):
     # SSH into CSE
-    ssh = paramiko.SSHClient()
-    ssh.load_system_host_keys()
     print("Connecting SSH...")
-    ssh.connect(ADDRESS, username=usr, password=pwd)
+    try:
+        ssh = paramiko.SSHClient()
+        ssh.load_system_host_keys()
+        ssh.connect(ADDRESS, username=usr, password=pwd)
+    except paramiko.SSHException:
+        print("An error occurred while connecting to CSE Servers")
+        print("Are your username and password correct?")
+        exit(1)
     return ssh
 
 def printOutput(result):
@@ -58,6 +63,7 @@ def runCommand(ssh, dir, command, mkdir=False):
     return (res[1].readlines(), res[2].readlines())
 
 def uploadFiles(usr, pwd, folder):
+    # FIXME: Use more secure system than this
     print(f"Uploading files to \"{folder}\"...")
     os.system(f"sshpass -p '{pwd}' rsync --copy-links -r ./* {usr}@{ADDRESS}:{folder}")
 
