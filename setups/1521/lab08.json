@@ -1,0 +1,14 @@
+{
+    "course": "1521",
+    "project": "lab08",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/lab/08/questions",
+    "starter_code": "1521 fetch lab08",
+    "exercises":
+    [
+        {
+            "name": "Find a program in $PATH",
+            "identifier": "pathfinder",
+            "files": ["pathfinder.c"]
+        }
+    ]
+}
