@@ -1,0 +1,14 @@
+{
+    "course": "1521",
+    "project": "ass2",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/assignments/ass2/index.html",
+    "starter_code": "1521 fetch shuck",
+    "exercises":
+    [
+        {
+            "name": "Shuck",
+            "identifier": "shuck",
+            "files": ["shuck.c"]
+        }
+    ]
+}
