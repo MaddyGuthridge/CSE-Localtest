@@ -1,15 +1,18 @@
 #!/bin/python3
 
-import argparse
-import json
+"""CSE Localtest: A program so you don't need to use VLab again
+Author: Miguel Guthridge
+All contributions welcome
+"""
+
 import sys
 import os
 from colorama import Fore
 
 from colorama import Fore
 
-import test, give, projectsetup
 import localtestcommon as c
+import test, give, projectsetup, install
 
 def badArgs():
     print(f"Run `localtest help` for help")
@@ -108,6 +111,8 @@ if __name__ == "__main__":
             upload()
         elif sys.argv[1] == "update":
             update()
+        if sys.argv[1] == "install":
+            install.install()
         else:
             badArgs()
     except KeyboardInterrupt:
