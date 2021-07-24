@@ -36,6 +36,8 @@ def help():
         f"             Args:",
         f"              {y}*{r} {b}course{r}: course code (eg {m}1511{r})",
         f"              {y}*{r} {b}project{r}: project to start (eg {m}lab01{r})",
+        f"             Run {b}localtest setup default{r} to use a template project",
+        f"             definition (for tests and exams)",
         f" {y}*{r} {b}fetch{r}:    Fetch starter code (use this after setting up a custom template)",
         f" {y}*{r} {b}instruct{r}: Launch instructions for project in web browser",
         f" {y}*{r} {b}subs{r}:     View course submissions in a web browser",
