@@ -82,3 +82,9 @@ project. Each exercise matches the following specification:
 If you go through the effort of creating one of these files yourself, I'd love 
 it if you created a pull request so that others can access your work too. The 
 json file should be stored under `setups/course_number/project_name.json`.
+
+# Including Extra Files in Tests and Submissions
+
+If you need to include extra files in your tests or submissions, you can 
+modify the `localtest.json` file for your project, adding extra files to the
+files list of any required exercises.
