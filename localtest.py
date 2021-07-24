@@ -1,15 +1,18 @@
 #!/bin/python3
 
-import argparse
-import json
+"""CSE Localtest: A program so you don't need to use VLab again
+Author: Miguel Guthridge
+All contributions welcome
+"""
+
 import sys
 import os
 from colorama import Fore
 
 from colorama import Fore
 
-import test, give, projectsetup
 import localtestcommon as c
+import test, give, projectsetup
 
 def badArgs():
     print(f"Run `localtest help` for help")
@@ -33,6 +36,8 @@ def help():
         f"             Args:",
         f"              {y}*{r} {b}course{r}: course code (eg {m}1511{r})",
         f"              {y}*{r} {b}project{r}: project to start (eg {m}lab01{r})",
+        f"             Run {b}localtest setup default{r} to use a template project",
+        f"             definition (for tests and exams)",
         f" {y}*{r} {b}fetch{r}:    Fetch starter code (use this after setting up a custom template)",
         f" {y}*{r} {b}instruct{r}: Launch instructions for project in web browser",
         f" {y}*{r} {b}subs{r}:     View course submissions in a web browser",
@@ -45,7 +50,6 @@ def help():
         f" {y}*{r} {b}upload{r}:   Uploads the contents of the directory to VLab",
         f" {y}*{r} {b}update{r}:   Runs a {b}git pull{r} to update the repository provided that it",
         f"             was {b}git clone{r}d",
-        f"",
         f"Note that for most commands, a {b}-v{r} argument will cause all output to be displayed",
         f"(eg. {b}test{r} or {b}give{r} output), even if it succeeded",
         f""
