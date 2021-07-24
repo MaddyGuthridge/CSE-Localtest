@@ -7,17 +7,34 @@ A program so you don't need to use VLab anymore.
 
 # Installation
 
-It is recommended that you install localtest by `git clone`ing the repository. 
-That way, you will be able to easily update it by running `localtest update`.
-
-You may also wish to add the python script to your `path` variable or to your 
-`.bash_aliases` file for easy invocation.
+1. Ensure you are using MacOS, Linux, or Windows Subsystem for Linux (WSL).
+Note that as Windows is vastly different to Linux and MacOS, results may differ 
+when programming with it and as such, it is recommended to use WSL.
+2. Launch a terminal and `cd` into a folder where you want to install Localtest.
+3. Run the command 
+`git clone https://github.com/MiguelGuthridge/CSE-Localtest.git` to download the
+required files. This will download them to a folder named CSE-Localtest.
+3. `cd` into this folder.
+4. Install the required Python modules by running 
+`pip3 install -r requirements.txt`. If you get an error, you may not have Python
+installed. Install python from the 
+[official website](https://www.python.org/downloads/), ensuring you choose the
+correct version for your OS. If you are using Linux or WSL, install it using 
+your package manager (eg `apt install python3.8`). After installing Python, try 
+running the command again.
+5. Run the installation script by running the command `./install.py`.
+This will add Localtest to the alias files for both ZSH and Bash. For other
+shells, you will need to add the alias it prints manually. Consider submitting a
+pull request adding support for your favourite shell!
+6. Restart your terminal. Localtest is now ready to use.
 
 ## Requirements:
 * Git (for self-updating)
-* Python (I tested using 3.8.5)
+* Python (I tested using 3.8.10)
 * Python modules:
-  * Run `pip3 install -r requirements.txt` in the localtest directory.
+  * Colorama
+  * Paramiko
+  * Getpass
 * Linux or Windows Subsystem for Linux (it might work on MacOS but I'm not 
 sure). Writing your code in Windows without the Linux subsystem is not 
 recommended for UNSW COMP courses.
