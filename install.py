@@ -1,3 +1,5 @@
+#!/bin/python3
+
 # Add aliases to .bash_aliases and .zhsrc
 
 import os
@@ -37,6 +39,11 @@ def install():
     # Yuck
     alias = r'alias \"localtest=\\\"' + quotePath(os.path.join(os.path.dirname(__file__), "localtest.py")) + r'\\\"\"'
 
+    # Print decoded version of what we generated
+    print(f"Generated alias:{Fore.CYAN} ", end='')
+    print(alias.encode('utf-8').decode('unicode_escape'))
+    print(f"{Fore.RESET}", end='')
+
     # Look for zsh config
     zsh_path = os.path.join(os.path.expanduser('~'), '.zshrc')
     if os.path.exists(zsh_path):
@@ -49,3 +56,6 @@ def install():
         print("Adding to Bash...")
         bash_aliases = os.path.join(os.path.expanduser('~'), '.bash_aliases')
         os.system(f'sudo sh -c "echo {alias} >> {quotePath(bash_aliases)}"')
+
+if __name__ == "__main__":
+    install()

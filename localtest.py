@@ -12,7 +12,7 @@ from colorama import Fore
 from colorama import Fore
 
 import localtestcommon as c
-import test, give, projectsetup, install
+import test, give, projectsetup
 
 def badArgs():
     print(f"Run `localtest help` for help")
@@ -48,7 +48,6 @@ def help():
         f" {y}*{r} {b}upload{r}:   Uploads the contents of the directory to VLab",
         f" {y}*{r} {b}update{r}:   Runs a {b}git pull{r} to update the repository provided that it",
         f"             was {b}git clone{r}d",
-        f"",
         f"Note that for most commands, a {b}-v{r} argument will cause all output to be displayed",
         f"(eg. {b}test{r} or {b}give{r} output), even if it succeeded",
         f""
@@ -111,8 +110,6 @@ if __name__ == "__main__":
             upload()
         elif sys.argv[1] == "update":
             update()
-        if sys.argv[1] == "install":
-            install.install()
         else:
             badArgs()
     except KeyboardInterrupt:
