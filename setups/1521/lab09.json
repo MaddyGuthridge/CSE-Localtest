@@ -1,5 +1,5 @@
 {
-    "version": [1, 5],
+    "localtest_version": [1, 5],
     "course": "1521",
     "term": "21T2",
     "project": "lab09",
