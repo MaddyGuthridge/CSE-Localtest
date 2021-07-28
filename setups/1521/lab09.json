@@ -1,0 +1,59 @@
+{
+    "version": [1, 5],
+    "course": "1521",
+    "term": "21T2",
+    "project": "lab09",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/lab/09/questions",
+    "starter_code": "1521 fetch lab09",
+    "exercises":
+    [
+        {
+            "name": "Create a file of integers",
+            "identifier": "create_integers_file",
+            "challenge": 0,
+            "files": ["create_integers_file.c"]
+        },
+        {
+            "name": "Print the Bytes of A File",
+            "identifier": "print_bytes",
+            "challenge": 0,
+            "files": ["print_bytes.c"]
+        },
+        {
+            "name": "Create a Binary File",
+            "identifier": "create_binary_file",
+            "challenge": 0,
+            "files": ["create_binary_file.c"]
+        },
+        {
+            "name": "Print Files Sizes",
+            "identifier": "file_sizes",
+            "challenge": 0,
+            "files": ["file_sizes.c"]
+        },
+        {
+            "name": "Print File Modes",
+            "identifier": "file_modes",
+            "challenge": 0,
+            "files": ["file_modes.c"]
+        },
+        {
+            "name": "Extract ASCII from a Binary File",
+            "identifier": "hidden_strings",
+            "challenge": 1,
+            "files": ["hidden_strings.c"]
+        },
+        {
+            "name": "ls -ld",
+            "identifier": "lsld",
+            "challenge": 1,
+            "files": ["lsld.c"]
+        },
+        {
+            "name": "Compile C Files If Needed",
+            "identifier": "compile_if_needed",
+            "challenge": 1,
+            "files": ["compile_if_needed.c"]
+        }
+    ]
+}
