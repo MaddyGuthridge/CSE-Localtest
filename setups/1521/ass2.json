@@ -8,7 +8,16 @@
         {
             "name": "Shuck",
             "identifier": "shuck",
-            "files": ["shuck.c"]
+            "files": ["shuck.c"],
+            "subsets":
+            {
+                "0": "subset0",
+                "1": "subset1",
+                "2": "subset2",
+                "3": "subset3",
+                "4": "subset4",
+                "5": "subset5"
+            }
         }
     ]
 }
