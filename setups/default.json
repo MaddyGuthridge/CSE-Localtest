@@ -1,4 +1,5 @@
 {
+    "localtest_version": [1, 5],
     "course": "0000",
     "project": "lab01",
     "help_url": "URL with instructions for the project",
@@ -6,9 +7,22 @@
     "exercises":
     [
         {
-            "name": "Exercise name",
+            "name": "Some exercise",
             "identifier": "exercise_identifier",
+            "challenge": 0,
             "files": ["my_code.c", "my_header.h", "my_header.c"]
+        },
+        {
+            "name": "A challenge exercise",
+            "identifier": "challenge_exercise_identifier",
+            "challenge": 1,
+            "files": ["challenge_code.c"],
+            "subsets":
+            {
+                "0": "subset0",
+                "1": "subset1",
+                "2": "subset2"
+            }
         }
     ]
 }

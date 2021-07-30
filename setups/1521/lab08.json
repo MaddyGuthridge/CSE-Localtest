@@ -1,4 +1,5 @@
 {
+    "localtest_version": [1, 5],
     "course": "1521",
     "project": "lab08",
     "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/lab/08/questions",
@@ -8,6 +9,7 @@
         {
             "name": "Find a program in $PATH",
             "identifier": "pathfinder",
+            "challenge": 0,
             "files": ["pathfinder.c"]
         }
     ]
