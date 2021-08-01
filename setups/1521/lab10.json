@@ -1,0 +1,29 @@
+{
+    "localtest_version": [1, 5],
+    "course": "1521",
+    "term": "21T2",
+    "project": "lab10",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/lab/10/questions",
+    "starter_code": "1521 fetch lab10",
+    "exercises":
+    [
+        {
+            "name": "Append to a Diary File",
+            "identifier": "diary",
+            "challenge": 0,
+            "files": ["diary.c"]
+        },
+        {
+            "name": "Simulate LRU Replacement of Virtual Memory Pages",
+            "identifier": "lru",
+            "challenge": 0,
+            "files": ["lru.c"]
+        },
+        {
+            "name": "Simulate Virtual Memory",
+            "identifier": "page_table",
+            "challenge": 1,
+            "files": ["page_table.c"]
+        }
+    ]
+}
