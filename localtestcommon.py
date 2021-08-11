@@ -5,8 +5,8 @@ import webbrowser
 from getpass import getpass
 from colorama import Fore
 
-VERSION = "1.4.0"
-SETUPS_VERSION = "2021.07.24.1"
+VERSION = "1.4.1"
+SETUPS_VERSION = "2021.08.12"
 
 CONFIG_FILE = "localtest.json"
 ADDRESS = "login.cse.unsw.edu.au"
