@@ -10,12 +10,14 @@
             "name": "Some exercise",
             "identifier": "exercise_identifier",
             "challenge": 0,
+            "weight": 1,
             "files": ["my_code.c", "my_header.h", "my_header.c"]
         },
         {
             "name": "A challenge exercise",
             "identifier": "challenge_exercise_identifier",
             "challenge": 1,
+            "weight": 1,
             "files": ["challenge_code.c"],
             "subsets":
             {
