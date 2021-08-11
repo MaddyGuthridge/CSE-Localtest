@@ -1,0 +1,88 @@
+{
+    "localtest_version": [1, 5],
+    "course": "1521",
+    "term": "21T2",
+    "project": "",
+    "help_url": "https://cgi.cse.unsw.edu.au/~cs1521/21T2/exam/20t3final/questions",
+    "starter_code": "1521 fetch exam_20t3final",
+    "exercises":
+    [
+        {
+            "name": "Question 1",
+            "identifier": "20t3final_q1",
+            "challenge": 0,
+            "weight": 10,
+            "files": ["20t3final_q1.s"]
+        },
+        {
+            "name": "Question 2",
+            "identifier": "20t3final_q2",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q2.c"]
+        },
+        {
+            "name": "Question 3",
+            "identifier": "20t3final_q3",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q3.c"]
+        },
+        {
+            "name": "Question 4",
+            "identifier": "20t3final_q4",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q4.s"]
+        },
+        {
+            "name": "Question 5",
+            "identifier": "20t3final_q5",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q5.c"]
+        },
+        {
+            "name": "Question 6",
+            "identifier": "20t3final_q6",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q6.c"]
+        },
+        {
+            "name": "Question 7",
+            "identifier": "20t3final_q7",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q7.s"]
+        },
+        {
+            "name": "Question 8",
+            "identifier": "20t3final_q8",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q8.s"]
+        },
+        {
+            "name": "Question 9",
+            "identifier": "20t3final_q9",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q9.s"]
+        },
+        {
+            "name": "Question 10",
+            "identifier": "20t3final_q10",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q10.c"]
+        },
+        {
+            "name": "Question 11",
+            "identifier": "20t3final_q11",
+            "challenge": 0,
+            "weight": 9,
+            "files": ["20t3final_q11.c"]
+        }
+    ]
+}
