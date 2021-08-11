@@ -10,7 +10,8 @@ def runTests(tests, course, ssh, verbose):
     for t in tests:
         print(f"Testing exercise: {t['name']} ({t['identifier']})... ", end='', flush=True)
         doOutput = verbose is not None
-        output = c.runCommand(ssh, c.TEMP_FOLDER, f"{course} autotest {t['identifier']} {' '.join(t['files'])}")
+        identifier = t['identifier'] if 'autotest_id' not in t else t['autotest_id']
+        output = c.runCommand(ssh, c.TEMP_FOLDER, f"{course} autotest {identifier} {' '.join(t['files'])}")
         if len(output[0]):
             if "could not be run" in output[0][-1]:
                 print(Fore.MAGENTA + "Some tests could not be run")
