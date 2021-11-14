@@ -22,11 +22,12 @@ installed. Install python from the
 correct version for your OS. If you are using Linux or WSL, install it using 
 your package manager (eg `apt install python3.8`). After installing Python, try 
 running the command again.
-5. Run the installation script by running the command `./install.py`.
+5. Run the installation script by running the command `python3 install.py`.
 This will add Localtest to the alias files for both ZSH and Bash. For other
 shells, you will need to add the alias it prints manually. Consider submitting a
 pull request adding support for your favourite shell!
-6. Restart your terminal. Localtest is now ready to use.
+6. Make localtest.py executable by running `chmod +x localtest.py`
+7. Restart your terminal. Localtest is now ready to use.
 
 ## Requirements:
 * Git (for self-updating)
