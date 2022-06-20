@@ -5,6 +5,12 @@ A program so you don't need to use VLab anymore.
  - Run autotests
  - Complete submissions
 
+# This software is archived
+
+I don't intend to maintain this code anymore. If you think it is useful, feel 
+free to use it in your own projects. Be warned, it was a first-year project, so 
+it is exceptionally poorly designed, and will need a lot of reworking though.
+
 # Installation
 
 1. Ensure you are using MacOS, Linux, or Windows Subsystem for Linux (WSL).
